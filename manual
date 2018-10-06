@@ -1,6 +1,4 @@
 #!/bin/bash
 docker run --rm \
-  -e DEPLOY_NAME=foo \
-  -e CONTAINER_NAME=bar \
   --entrypoint /bin/sh \
-  -it gcr.io/`scripts/get-gce-config`/`scripts/get-name`:`scripts/get-version`
+  -it `scripts/get-hub-name`/`scripts/get-name`:`scripts/get-version`

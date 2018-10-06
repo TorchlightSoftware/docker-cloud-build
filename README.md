@@ -1,6 +1,6 @@
-# Docker/Gcloud Build Scripts
+# DockerCloud Build Scripts
 
-These are some scripts that I've built up while using Docker and Google Cloud.  Others may find them helpful.
+These are some scripts that I've built up while using DockerCloud.  Others may find them helpful.
 
 # Usage
 
@@ -8,13 +8,22 @@ These are some scripts that I've built up while using Docker and Google Cloud.  
 ./scripts/build # will build the Dockerfile in the current directory named by name/version from package.json
 ./scripts/start # will start the image with the current name/version from package.json
 ./scripts/run-local # this runs your project without creating a container
-./scripts/push # the image is prefixed with your current GCE project - this will deploy it to GCE
+./scripts/push # the image is prefixed with your current Dockerhub project - this will deploy it to hub.docker.com
 ./scripts/restart # restart the image
 ./scripts/stop # stop the image
 ./scripts/manual # will start the image with a bash terminal
 ```
 
-# Environment Variables
+# Installation
+
+1. You'll need docker installed locally (of course).
+2. Add the following to your .profile, .bash_rc, or other shell config:
+
+```
+alias docker-cloud="docker run -it -e DOCKERCLOUD_USER=username -e DOCKERCLOUD_PASS=password --rm dockercloud/cli"
+```
+
+# Per Project Environment Variables
 
 Create a `tmp/ENV` file with the following format:
 
@@ -38,13 +47,13 @@ npm init
 You can clone the scripts:
 
 ```bash
-git clone https://github.com/TorchlightSoftware/docker-gce-build.git scripts
+git clone https://github.com/TorchlightSoftware/docker-cloud-build.git scripts
 ```
 
 Or add them as a submodule to your project:
 
 ```bash
-git submodule add https://github.com/TorchlightSoftware/docker-gce-build.git scripts
+git submodule add https://github.com/TorchlightSoftware/docker-cloud-build.git scripts
 ```
 
 You'll probably end up making project specific changes to the `start` and `manual` scripts.  I don't have a good solution for that.  These scripts should probably be turned into some kind of build tool with a config file.  This is just a quick and dirty implementation that works for me.

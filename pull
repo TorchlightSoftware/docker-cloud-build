@@ -1,2 +1,2 @@
 #!/bin/bash
-gcloud docker -- pull `scripts/print-image-name`
+docker pull `scripts/get-hub-name`/`scripts/get-name`:`scripts/get-version`

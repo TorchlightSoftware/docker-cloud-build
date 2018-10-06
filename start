@@ -1,4 +1,4 @@
 #!/bin/bash
 docker run --name `scripts/get-name` -d  \
-  --env-file tmp/ENV \
-  gcr.io/`scripts/get-gce-config`/`scripts/get-name`:`scripts/get-version`
+  --env-file .env \
+  `scripts/get-hub-name`/`scripts/get-name`:`scripts/get-version`

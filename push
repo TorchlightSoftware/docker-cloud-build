@@ -1,2 +1,2 @@
 #!/bin/bash
-gcloud docker -- push gcr.io/`scripts/get-gce-config`/`scripts/get-name`:`scripts/get-version`
+docker push `scripts/get-hub-name`/`scripts/get-name`:`scripts/get-version`
